@@ -15,7 +15,12 @@ export default {
     try {
       app = firebase.app();
     } catch (e) {
-      app = firebase.initializeApp(config.firebase);
+      let currentURL = getOwner(application).base.$.ajaxSettings.url.toString();
+      if(currentURL.split('?')[1] === 'preview=true'){
+        app = firebase.initializeApp(config.previewFirebase);
+      }else{
+        app = firebase.initializeApp(config.firebase);
+      }
     }
 
     return app.database().ref();
