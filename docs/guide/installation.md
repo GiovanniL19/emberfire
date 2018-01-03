@@ -48,6 +48,21 @@ var ENV = {
 
 You are now set up to use Ember Data as you normally would.
 
+# Firebase Preview
+If you have two firebase projects and would like to access both in a single application, you will need to use firebase preview. In your environment file you need to add firebasePreview which contains the configuration of your second firebase project:
+
+```js
+// config/environment.js
+var ENV = {
+  firebasePreview: {
+    apiKey: 'xyz',
+    authDomain: 'YOUR-FIREBASE-APP.firebaseapp.com',
+    databaseURL: 'https://YOUR-FIREBASE-APP.firebaseio.com',
+    storageBucket: 'YOUR-FIREBASE-APP.appspot.com',
+  }
+```
+
+For emberfire to access this data, you need to pass the ```preview=true``` query into the URL.
 
 ### Continue reading
 
